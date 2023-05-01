@@ -40,7 +40,8 @@ export const actions = {
             level: 0,
             scoreMulti: 1,
             scores: [0, 0, 0, 0, 0],
-            isAdmin: false
+            isAdmin: false,
+            finalScore : 0
         });
         await db.collection("Users").insertOne(newUser);
         cookies.set('sessionId', newUser._id)
