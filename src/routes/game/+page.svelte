@@ -29,7 +29,7 @@
       <h1>{$user.name}</h1>
     </div>
     <div class="levels">
-      <h1>Levels completed: {$user.level}</h1>
+      <h1>Current level: {$user.level}</h1>
     </div>
     {#if $user.level !== 5}
       <button
@@ -50,6 +50,7 @@
 
 <style>
   .profile {
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;

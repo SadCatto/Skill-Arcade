@@ -4,6 +4,7 @@
   import { isModalOpen } from "./UtilityStore";
 
   let stateOfModal = "Sign in";
+
 </script>
 
 <div id="modal" style="--display: {$isModalOpen ? 'block' : 'none'};">

@@ -19,7 +19,7 @@
    * @type {number[]}
    */
   const timeouts = [];
-  $: gameWon = level > 3 ? true : false;
+  $: gameWon = level > 5 ? true : false;
 
   /**
    * @param {boolean} gameWon
@@ -31,7 +31,7 @@
 
       const time = Date.now() - startTime;
       let raw = JSON.stringify({
-        level: $user.level, 
+        level: $user.level,
         time: time,
         scoreMulti: $user.scoreMulti,
       });
@@ -161,13 +161,15 @@
     </div>
   {:else}
     <!-- svelte-ignore a11y-click-events-have-key-events -->
-    <div on:click={showSequence} class="container">
+    <div class="container">
       <h1>Sequence Memory</h1>
-      <p>
+      <h3>
         Remember the sequence in which the blocks glow, and repeat them when
         it's your turn
-      </p>
-      <p>Click here to get started</p>
+      </h3>
+      <button class="submit-btn" on:click={showSequence}
+        >Click here to start</button
+      >
     </div>
   {/if}
 </div>
@@ -181,6 +183,7 @@
     height: 80vh;
     width: 100%;
     flex-direction: column;
+    gap: 2rem;
   }
 
   .game {

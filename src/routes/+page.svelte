@@ -1,5 +1,5 @@
 <script>
-  import { isModalOpen } from "$lib/UtilityStore.js";
+  import { isModalOpen, error } from "$lib/UtilityStore.js";
   import { page } from "$app/stores";
   import { user, isLoggedIn } from "$lib/UserStore.js";
   import Login from "$lib/Login.svelte";
@@ -11,7 +11,12 @@
   function openModal() {
     $isModalOpen = true;
   }
+  export let form;
 </script>
+
+{#if form?.failure}
+  <h1>Invalid Credentials</h1>
+{/if}
 
 <Login />
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -25,10 +30,20 @@
 <div class="container">
   {#if $isLoggedIn}
     <h1>Logged in as {$user.name}</h1>
-    <button class="submit-btn" on:click={() => goto("/game")}
-      >Continue to Games Dashboard</button
+    {#if $user.isAdmin}
+      <h1>You are an admin user.</h1>
+      <h1><a href="/admin-panel">Click here to go to the admin panel</a></h1>
+    {/if}
+    <button
+      class="submit-btn"
+      on:click={() => setTimeout(() => goto("/url"), 0)}
     >
+      Continue to Games Dashboard
+    </button>
   {:else}
+    {#if $error != ""}
+      <h1>{$error}</h1>
+    {/if}
     <h1>Welcome to Skill Arcade.</h1>
     <button class="submit-btn" on:click={openModal}>
       Register to continue

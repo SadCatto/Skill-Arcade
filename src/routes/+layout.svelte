@@ -10,7 +10,7 @@
   import Navigation from "$lib/Navigation.svelte";
   import { user, isLoggedIn, times } from "$lib/UserStore.js";
   import { deserialize } from "$app/forms";
-  import { isModalOpen } from "$lib/UtilityStore.js";
+  import { isModalOpen, error } from "$lib/UtilityStore.js";
   export let data;
 
   function drawerOpen(): void {
@@ -22,7 +22,8 @@
    */
   function setDataInStore(userData: import("./$types.js").PageData) {
     if (!userData || userData.success === false) {
-      return;
+      $error = "Invalid Credentials"
+      return
     }
     if (!userData.userDetails) {
       return;

@@ -10,11 +10,11 @@ export const actions = {
             .findOne({ email: data.get('email') });
         if (!user) {
             return {
-                success: false
+                failure: true
             };
         } else if (!(await bcrypt.compare(data.get('password'), user.password))) {
             return {
-                success: false
+                failure: true
             };
         } else {
             cookies.set('sessionId', user._id)
@@ -30,7 +30,7 @@ export const actions = {
             .findOne({ email: data.get('email') });
         if (user) {
             return {
-                success: false,
+                failure: true,
             };
         }
         const newUser = new User({
@@ -40,6 +40,7 @@ export const actions = {
             level: 0,
             scoreMulti: 1,
             scores: [0, 0, 0, 0, 0],
+            finalScore: 0,
             isAdmin: false
         });
         await db.collection("Users").insertOne(newUser);

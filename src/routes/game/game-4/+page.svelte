@@ -57,8 +57,23 @@
       for (let j = 0; j < 5; j++) {
         if (solutionHouseData[i][j] !== values[i][j]) {
           gameLost = true;
-          $user.scoreMulti *= 0.8;
+          $user.scoreMulti = $user.scoreMulti * 0.8;
           $user.level = 0;
+          let myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+
+          let raw = JSON.stringify({
+            scoreMulti: $user.scoreMulti,
+          });
+
+          let requestOptions = {
+            method: "PUT",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow",
+          };
+
+          fetch("/game/setmulti", requestOptions);
           return;
         }
       }
@@ -85,7 +100,9 @@
     let tempTimes = $times;
     tempTimes[$user.level] = Math.floor(time / 1000);
     $times = tempTimes;
-    $user.level = 4;
+    if ($user.level === 3) {
+      $user.level += 1;
+    }
   }
 
   /**

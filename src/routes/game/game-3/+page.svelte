@@ -6,8 +6,8 @@
   let gameWon = false;
   let gameLost = false;
   let lastWarning = false;
-  let tutorial = true
-  let startTime = 0
+  let tutorial = true;
+  let startTime = 0;
   /**
    * @type {number}
    */
@@ -25,8 +25,23 @@
       setVictory();
     } else if (lastWarning) {
       gameLost = true;
-      $user.scoreMulti *= 0.8
+      $user.scoreMulti = $user.scoreMulti * 0.8;
       $user.level = 0;
+      let myHeaders = new Headers();
+      myHeaders.append("Content-Type", "application/json");
+
+      let raw = JSON.stringify({
+        scoreMulti: $user.scoreMulti,
+      });
+
+      let requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow",
+      };
+
+      fetch("/game/setmulti", requestOptions);
     } else {
       lastWarning = true;
     }
@@ -57,9 +72,9 @@
     $user.level = 3;
   }
 
-  function startGame () {
-    tutorial = false
-    startTime = Date.now()
+  function startGame() {
+    tutorial = false;
+    startTime = Date.now();
   }
 </script>
 

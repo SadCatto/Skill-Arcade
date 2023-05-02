@@ -17,4 +17,4 @@ export let times = writable([
     0, 0, 0, 0, 0
 ])
 
-export const isLoggedIn = writable(false)
+export let isLoggedIn = writable(false)

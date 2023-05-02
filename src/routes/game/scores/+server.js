@@ -24,6 +24,6 @@ export async function PUT({ params, request, cookies }) {
         scoresArray[levelNum] = time
     }
     levelNum++;
-    await db.collection("Users").findOneAndUpdate({ _id: user_id }, { $set: { scores: scoresArray, level: levelNum, finalScore: finalScore } })
+    await db.collection("Users").findOneAndUpdate({ _id: user_id }, { $set: { scores: scoresArray, level: levelNum, finalScore: finalScore, scoreMulti: scoreMulti } })
     return new Response(null, { status: 204 });
 }

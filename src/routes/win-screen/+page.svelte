@@ -7,6 +7,6 @@
     <h1>You've won!</h1>
     <img src="/celebration.gif" alt="" width="500" />
   {:else}
-    <h1>Not yet my child, not yet...</h1>
+    <h1>Not yet buddy, not yet...</h1>
   {/if}
 </div>
