@@ -30,7 +30,7 @@ Skill Arcade is a website to test users various soft skills. It is an engaging g
 - **User Progress**: The time user takes to solve each puzzle is stored in the database for determining the skills. We also store the number of attempts user takes in finding the solution and assign the user score for the game based on both the factors.
 - **User Profile**: It contains information about user progress.
 - **Admin Dashboard** : The admin of the website can track the performance of all the users who played any number of levels from the admin dashboard accessible by logging in into admin account.
-- **Browser Compatibility**: On Refressing browser or starting a new session the game will restart and the user will be tracked to get good measures of skills.
+- **Browser Compatibility**: On Refressing browser or starting a new session the game will continue from the level user last left and the user will be tracked to get good measures of skills.
 
 # Additional Features
 
