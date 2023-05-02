@@ -36,7 +36,7 @@
     {/if}
     <button
       class="submit-btn"
-      on:click={() => setTimeout(() => goto("/url"), 0)}
+      on:click={() => setTimeout(() => goto("/game"), 0)}
     >
       Continue to Games Dashboard
     </button>
