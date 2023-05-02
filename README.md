@@ -74,7 +74,7 @@ Skill Arcade is a website to test users various soft skills. It is an engaging g
      Puzzle : In this problem the user is provided with 15 clues and he has to deduce the answers.
 
     Answer :
-    ```
+   
 
 | House 1   | House 2 | House 3   | House 4 | House 5     |
 | --------- | ------- | --------- | ------- | ----------- |
@@ -83,7 +83,6 @@ Skill Arcade is a website to test users various soft skills. It is an engaging g
 | Water     | Tea     | Milk      | Coffee  | Beer        |
 | Dunhill   | Blend   | Pall Mall | Prince  | Blue Master |
 | Cat       | Horse   | Birds     | Fish    | Dog         |
-| ```       |         |           |         |             |
 
 ![1683067033967](image/README/1683067033967.png)
 
